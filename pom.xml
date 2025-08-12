@@ -6,36 +6,46 @@
     <version>2.5.30</version>
   </dependency>
 
-  <!-- Hibernate for Database -->
-  <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-core</artifactId>
-    <version>5.6.15.Final</version>
-  </dependency>
-  <dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.33</version>
-  </dependency>
-
-  <!-- JSON Support for AJAX -->
+  <!-- JSON Plugin -->
   <dependency>
     <groupId>org.apache.struts</groupId>
     <artifactId>struts2-json-plugin</artifactId>
     <version>2.5.30</version>
   </dependency>
 
-  <!-- File Upload -->
+  <!-- Hibernate ORM -->
   <dependency>
-    <groupId>commons-fileupload</groupId>
-    <artifactId>commons-fileupload</artifactId>
-    <version>1.5</version>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.6.15.Final</version>
   </dependency>
 
-  <!-- Logging -->
+  <!-- MySQL Connector -->
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+  </dependency>
+
+  <!-- Log4j2 for Logging -->
   <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>
     <version>2.23.1</version>
+  </dependency>
+
+  <!-- Servlet API -->
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>javax.servlet-api</artifactId>
+    <version>4.0.1</version>
+    <scope>provided</scope>
+  </dependency>
+
+  <!-- JSTL for JSP -->
+  <dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
   </dependency>
 </dependencies>
