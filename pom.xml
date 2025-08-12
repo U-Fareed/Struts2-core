@@ -1,0 +1,41 @@
+<dependencies>
+  <!-- Struts2 Core -->
+  <dependency>
+    <groupId>org.apache.struts</groupId>
+    <artifactId>struts2-core</artifactId>
+    <version>2.5.30</version>
+  </dependency>
+
+  <!-- Hibernate for Database -->
+  <dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-core</artifactId>
+    <version>5.6.15.Final</version>
+  </dependency>
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.33</version>
+  </dependency>
+
+  <!-- JSON Support for AJAX -->
+  <dependency>
+    <groupId>org.apache.struts</groupId>
+    <artifactId>struts2-json-plugin</artifactId>
+    <version>2.5.30</version>
+  </dependency>
+
+  <!-- File Upload -->
+  <dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.5</version>
+  </dependency>
+
+  <!-- Logging -->
+  <dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.23.1</version>
+  </dependency>
+</dependencies>
