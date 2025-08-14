@@ -15,41 +15,35 @@
       </interceptor-stack>
     </interceptors>
 
-    <!-- Home action -->
     <action name="home" class="com.example.actions.HomeAction">
       <result>/WEB-INF/views/home.jsp</result>
     </action>
 
-    <!-- Login action -->
     <action name="login" class="com.example.actions.LoginAction">
       <result name="success">/WEB-INF/views/home.jsp</result>
       <result name="input">/WEB-INF/views/auth/login.jsp</result>
     </action>
 
-    <!-- Logout action -->
     <action name="logout" class="com.example.actions.LogoutAction">
       <result type="redirect">home</result>
     </action>
   </package>
 
   <package name="user" namespace="/user" extends="struts-default, json-default">
-    <!-- User registration with manual validation -->
     <action name="register" class="com.example.actions.UserAction" method="register">
-      <interceptor-ref name="secureStack"/>
+      <interceptor-ref name="defaultStack"/>
+      <result name="input">/WEB-INF/views/user/register.jsp</result>
       <result name="success" type="redirectAction">
         <param name="actionName">list</param>
         <param name="namespace">/user</param>
       </result>
-      <result name="input">/WEB-INF/views/user/register.jsp</result>
     </action>
 
-    <!-- User listing -->
     <action name="list" class="com.example.actions.UserAction" method="list">
       <interceptor-ref name="secureStack"/>
       <result>/WEB-INF/views/user/list.jsp</result>
     </action>
 
-    <!-- AJAX email check -->
     <action name="check-email" class="com.example.actions.UserAction" method="checkEmail">
       <result type="json">
         <param name="root">emailExists</param>

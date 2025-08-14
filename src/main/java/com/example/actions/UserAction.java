@@ -2,6 +2,7 @@ package com.example.actions;
 
 import com.example.dao.UserDAO;
 import com.example.models.User;
+import com.example.utils.HibernateUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;

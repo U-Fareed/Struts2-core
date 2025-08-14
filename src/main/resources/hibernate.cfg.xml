@@ -1,59 +1,29 @@
-<!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
-        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- Database connection settings -->
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/struts_demo</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">password</property>
 
-<struts>
-  <constant name="struts.devMode" value="true" />
-  <constant name="struts.custom.i18n.resources" value="global" />
+    <!-- JDBC connection pool settings -->
+    <property name="hibernate.c3p0.min_size">5</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.timeout">300</property>
+    <property name="hibernate.c3p0.max_statements">50</property>
+    <property name="hibernate.c3p0.idle_test_period">3000</property>
 
-  <package name="default" namespace="/" extends="struts-default, json-default">
-    <interceptors>
-      <interceptor name="auth" class="com.example.interceptors.AuthInterceptor"/>
-      <interceptor-stack name="secureStack">
-        <interceptor-ref name="auth"/>
-        <interceptor-ref name="defaultStack"/>
-      </interceptor-stack>
-    </interceptors>
+    <!-- SQL dialect -->
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
-    <!-- Home action -->
-    <action name="home" class="com.example.actions.HomeAction">
-      <result>/WEB-INF/views/home.jsp</result>
-    </action>
+    <!-- Echo all executed SQL to stdout -->
+    <property name="hibernate.show_sql">true</property>
 
-    <!-- Login action -->
-    <action name="login" class="com.example.actions.LoginAction">
-      <result name="success">/WEB-INF/views/home.jsp</result>
-      <result name="input">/WEB-INF/views/auth/login.jsp</result>
-    </action>
-
-    <!-- Logout action -->
-    <action name="logout" class="com.example.actions.LogoutAction">
-      <result type="redirect">home</result>
-    </action>
-  </package>
-
-  <package name="user" namespace="/user" extends="struts-default, json-default">
-    <!-- User registration with manual validation -->
-    <action name="register" class="com.example.actions.UserAction" method="register">
-      <interceptor-ref name="secureStack"/>
-      <result name="success" type="redirectAction">
-        <param name="actionName">list</param>
-        <param name="namespace">/user</param>
-      </result>
-      <result name="input">/WEB-INF/views/user/register.jsp</result>
-    </action>
-
-    <!-- User listing -->
-    <action name="list" class="com.example.actions.UserAction" method="list">
-      <interceptor-ref name="secureStack"/>
-      <result>/WEB-INF/views/user/list.jsp</result>
-    </action>
-
-    <!-- AJAX email check -->
-    <action name="check-email" class="com.example.actions.UserAction" method="checkEmail">
-      <result type="json">
-        <param name="root">emailExists</param>
-      </result>
-    </action>
-  </package>
-</struts>
+    <!-- Update the database schema on startup -->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+  </session-factory>
+</hibernate-configuration>
