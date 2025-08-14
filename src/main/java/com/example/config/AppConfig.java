@@ -1,4 +1,3 @@
-// File: src/main/java/com/example/config/AppConfig.java
 package com.example.config;
 
 import org.apache.struts2.convention.annotation.Action;
